@@ -1,4 +1,4 @@
-library rx_state;
+library rx_flow;
 
 export "di/locator.dart";
 

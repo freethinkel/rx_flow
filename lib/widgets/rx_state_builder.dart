@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:rx_state/model/rx.dart';
+import 'package:rx_flow/model/rx.dart';
 
 class RxStateBuilder<T> extends StatelessWidget {
   const RxStateBuilder({

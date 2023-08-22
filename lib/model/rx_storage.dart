@@ -1,4 +1,4 @@
-import 'package:rx_state/model/rx.dart';
+import 'package:rx_flow/model/rx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RxStateStorage<T> extends RxState<T> {

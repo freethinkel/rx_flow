@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:rx_state/di/locator.dart';
-import 'package:rx_state/model/controller.dart';
+import 'package:rx_flow/di/locator.dart';
+import 'package:rx_flow/model/controller.dart';
 
 class ControllerConnector<C extends IController> extends StatefulWidget {
   const ControllerConnector({

@@ -1,7 +1,7 @@
-name: rx_state
+name: rx_flow
 description: State manager for flutter.
 version: 0.0.1
-homepage: https://github.com/freethinkel/rx_state.git
+homepage: https://github.com/freethinkel/rx_flow.git
 
 environment:
   sdk: '>=3.0.6 <4.0.0'

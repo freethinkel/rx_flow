@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:rx_state/model/controller.dart';
-import 'package:rx_state/model/rx.dart';
-import 'package:rx_state/widgets/controller_connector.dart';
+import 'package:rx_flow/model/controller.dart';
+import 'package:rx_flow/model/rx.dart';
+import 'package:rx_flow/widgets/controller_connector.dart';
 
 abstract class StateWatcher {
   C controller<C extends IController>();
