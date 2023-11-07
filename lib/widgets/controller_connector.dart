@@ -16,13 +16,13 @@ class ControllerConnector<C extends IController> extends StatefulWidget {
   State<ControllerConnector<C>> createState() => _ControllerConnectorState<C>();
 
   static C of<C extends IController>() {
-    return Locator.instance.get<C>();
+    return Locator.global.get<C>();
   }
 }
 
 class _ControllerConnectorState<C extends IController>
     extends State<ControllerConnector<C>> {
-  final C controller = Locator.instance.get();
+  final C controller = Locator.global.get();
 
   @override
   void initState() {

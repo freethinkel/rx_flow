@@ -2,9 +2,9 @@ import 'package:get_it/get_it.dart';
 
 class Locator {
   final GetIt _getIt = GetIt.asNewInstance();
-  static final instance = Locator._();
+  static final global = Locator();
 
-  Locator._();
+  Locator();
 
   Locator register<T extends Object>(T instance) {
     _getIt.registerSingleton(instance);
