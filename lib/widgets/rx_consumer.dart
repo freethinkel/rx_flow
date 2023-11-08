@@ -13,11 +13,14 @@ abstract class StateWatcher {
 class StateWatcherImpl implements StateWatcher {
   const StateWatcherImpl({
     required this.onRegisterState,
+    required this.context,
   });
   final Function(RxState) onRegisterState;
+  final BuildContext context;
+
   @override
   C controller<C extends IController>() {
-    return ControllerConnector.of<C>();
+    return ControllerConnector.of<C>(context);
   }
 
   @override
@@ -42,13 +45,16 @@ abstract class RxConsumer extends StatefulWidget {
 class _ConsumerState extends State<RxConsumer> {
   final Set<RxState> _states = {};
   List<StreamSubscription> _subscriptions = [];
-  late final watcher = StateWatcherImpl(onRegisterState: (state) {
-    if (_states.contains(state)) {
-      return;
-    }
-    _states.add(state);
-    _onUpdate();
-  });
+  late final watcher = StateWatcherImpl(
+    onRegisterState: (state) {
+      if (_states.contains(state)) {
+        return;
+      }
+      _states.add(state);
+      _onUpdate();
+    },
+    context: context,
+  );
 
   _onUpdate() {
     _unlisten();

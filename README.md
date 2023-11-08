@@ -29,4 +29,14 @@ class MyWidget extends RxConsumer {
   }
 }
 
+// Provider
+
+  Widget build(BuildContext context, watcher) {
+    return LocatorProvider(
+      locator: Locator() // or Locator.global
+      child: ...
+    );
+  }
+
+
 ```

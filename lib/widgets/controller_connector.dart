@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:rx_flow/di/locator.dart';
 import 'package:rx_flow/model/controller.dart';
+import 'package:rx_flow/widgets/locator_provider.dart';
 
 class ControllerConnector<C extends IController> extends StatefulWidget {
   const ControllerConnector({
@@ -15,14 +15,14 @@ class ControllerConnector<C extends IController> extends StatefulWidget {
   @override
   State<ControllerConnector<C>> createState() => _ControllerConnectorState<C>();
 
-  static C of<C extends IController>() {
-    return Locator.global.get<C>();
+  static C of<C extends IController>(BuildContext context) {
+    return LocatorProvider.of(context).get<C>();
   }
 }
 
 class _ControllerConnectorState<C extends IController>
     extends State<ControllerConnector<C>> {
-  final C controller = Locator.global.get();
+  late final C controller = ControllerConnector.of(context);
 
   @override
   void initState() {
