@@ -1,6 +1,6 @@
 name: rx_flow
 description: State manager for flutter.
-version: 1.1.0
+version: 1.2.0
 homepage: https://github.com/freethinkel/rx_flow.git
 
 environment:

@@ -19,4 +19,8 @@ class Locator {
   Future<void> reset() async {
     await _getIt.reset();
   }
+
+  void unregister<T extends Object>() {
+    _getIt.unregister<T>();
+  }
 }

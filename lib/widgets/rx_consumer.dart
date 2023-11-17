@@ -34,7 +34,7 @@ abstract class RxConsumer extends StatefulWidget {
   const RxConsumer({super.key});
   Widget build(BuildContext context, StateWatcher watcher);
 
-  void onInit() {}
+  void onInit(BuildContext context) {}
   void dispose() {}
 
   @override
@@ -74,7 +74,7 @@ class _ConsumerState extends State<RxConsumer> {
 
   @override
   void initState() {
-    widget.onInit();
+    widget.onInit(context);
     super.initState();
   }
 

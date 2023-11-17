@@ -10,3 +10,4 @@ export 'model/controller.dart';
 export "widgets/rx_consumer.dart";
 export "widgets/rx_state_builder.dart";
 export "widgets/controller_connector.dart";
+export "widgets/locator_provider.dart";
