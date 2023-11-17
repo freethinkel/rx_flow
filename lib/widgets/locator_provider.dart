@@ -17,8 +17,9 @@ class LocatorProvider extends InheritedWidget {
   }
 
   static Locator of(BuildContext context) {
-    var theme = context.dependOnInheritedWidgetOfExactType<LocatorProvider>();
+    var provider =
+        context.dependOnInheritedWidgetOfExactType<LocatorProvider>();
 
-    return theme!.locator;
+    return provider!.locator;
   }
 }

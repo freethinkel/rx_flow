@@ -16,11 +16,11 @@ class StateWatcherImpl implements StateWatcher {
     required this.context,
   });
   final Function(RxState) onRegisterState;
-  final BuildContext context;
+  final MutBox<BuildContext> context;
 
   @override
   C controller<C extends IController>() {
-    return ControllerConnector.of<C>(context);
+    return ControllerConnector.of<C>(context.get());
   }
 
   @override
@@ -53,8 +53,9 @@ class _ConsumerState extends State<RxConsumer> {
       _states.add(state);
       _onUpdate();
     },
-    context: context,
+    context: _mutContext,
   );
+  late final _mutContext = MutBox(value: context);
 
   _onUpdate() {
     _unlisten();
@@ -87,6 +88,20 @@ class _ConsumerState extends State<RxConsumer> {
 
   @override
   Widget build(BuildContext context) {
+    _mutContext.set(context);
     return widget.build(context, watcher);
+  }
+}
+
+class MutBox<T> {
+  MutBox({required T value}) : _value = value;
+  T _value;
+
+  T get() {
+    return _value;
+  }
+
+  set(T value) {
+    _value = value;
   }
 }
