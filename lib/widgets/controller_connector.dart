@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 import 'package:rx_flow/model/controller.dart';
 import 'package:rx_flow/widgets/locator_provider.dart';
@@ -17,6 +19,15 @@ class ControllerConnector<C extends IController> extends StatefulWidget {
 
   static C of<C extends IController>(BuildContext context) {
     return LocatorProvider.of(context).get<C>();
+  }
+
+  static Future<C> getAsync<C extends IController>(BuildContext context) {
+    final completer = Completer<C>();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      completer.complete(LocatorProvider.of(context).get<C>());
+    });
+
+    return completer.future;
   }
 }
 
